@@ -1,7 +1,5 @@
 package com.rakuten.productmanagement;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +8,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.rakuten.productmanagement.controller.ProductController;
-import com.rakuten.productmanagement.model.Product;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -39,8 +36,6 @@ class ProductmanagementApplicationTests {
 		    .expectStatus().isOk()
 		    .expectHeader().valueEquals("content-type", "application/json")
 		    .expectBody().jsonPath("quantity").isEqualTo("20");
-                        
 	}
-	
 	
 }
