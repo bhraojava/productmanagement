@@ -1,0 +1,17 @@
+package com.rakuten.productmanagement.utils;
+
+public class UtilClass {
+	
+	
+	public static final String UUID_PATTERN = "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$";
+
+	public static void main(String[] args) {
+		Status status = Status.FULFILLED;
+		System.out.println(status);
+	}
+	
+	
+	
+}
+
+
