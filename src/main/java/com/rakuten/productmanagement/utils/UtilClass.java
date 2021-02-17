@@ -7,7 +7,7 @@ public class UtilClass {
 
 	public static void main(String[] args) {
 		Status status = Status.FULFILLED;
-		System.out.println(status);
+		
 	}
 	
 	

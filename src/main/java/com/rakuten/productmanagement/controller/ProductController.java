@@ -39,9 +39,9 @@ public class ProductController {
 
 	
 	@GetMapping("/all")
-	public ResponseEntity<Flux<Product>> getAllProducts() {
+	public Flux<Product> getAllProducts() {
 		try {
-		 return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
+		 return productService.getAllProducts();
 		}catch (Error e) {
 			 throw new RuntimeErrorException(e, e.getMessage());
 		}
