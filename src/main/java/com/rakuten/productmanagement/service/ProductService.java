@@ -1,5 +1,7 @@
 package com.rakuten.productmanagement.service;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +33,13 @@ public class ProductService {
 		
 		return productRepository.save(produt);
 	}
+
+
+	public Mono<Void> deleteProductById(@Valid String productId) {
+		
+		return productRepository.deleteById(productId);
+	}
+	
+	
+	
 }

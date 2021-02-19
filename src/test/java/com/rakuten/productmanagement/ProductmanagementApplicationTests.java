@@ -18,6 +18,7 @@ import com.rakuten.productmanagement.model.Product;
 
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 @ComponentScan(basePackages = "com.rakuten.productmanagement")
@@ -70,10 +71,36 @@ class ProductmanagementApplicationTests {
 		 
 		  assertEquals(2, firstProduct.getStatus());		
 		    
+		  
 	
 			/*
 			 * testClient .get() .uri("/product/all") .accept(MediaType.APPLICATION_JSON)
 			 * .retrieve() .bodyToFlux(Product.class) .log() .subscribe();
 			 */
+	}
+	
+	@Test
+	public void fluxTest() {
+		
+		
+				  Flux<Product> productFlux = webTestClient 
+				  .get() 
+				  .uri("/product/all")
+				  .accept(MediaType.APPLICATION_JSON)
+				  .exchange()
+				  .returnResult(Product.class)
+				  .getResponseBody();
+				  
+				  productFlux.
+				  subscribe((product->{
+					  System.out.println("**************" + product);
+				  }),
+				   (error -> {
+					   System.out.println("Errrrrrrrrrrrror" + error);
+				   }),
+				   (()->{
+					   System.out.println("Compleeeeeeeeeeeted **********");
+				   }));
+				  
 	}
 }

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -54,7 +55,7 @@ public class Product {
 	@Pattern(regexp = UtilClass.UUID_PATTERN, message = "UUID_PATTERN Formatet Expected")
 	private String itemId;              
 	@NotNull
-	@Size(min = 1, max = 999)
+	@Range(min = 1, max = 999)
 	private Integer quantity;
 	@NotNull
 	@NotEmpty
